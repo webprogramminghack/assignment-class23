@@ -1,0 +1,31 @@
+.container {
+  margin: rem-calc(30);
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  .buttonWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: baseline;
+    padding: rem-calc(10);
+    p {
+      font-weight: 400;
+      size: rem-calc(40);
+      line-height: rem-calc(20);
+      color: #fff;
+      padding: rem-calc(20) rem-calc(64.5);
+      background-color: #3dabff;
+    }
+    button {
+      margin-top: rem_calc(32);
+      margin-left: rem_calc(32);
+      padding: rem-calc(12);
+      border-radius: rem-calc(5);
+      font-weight: 500;
+      text-align: center;
+      background-color: #333;
+      color: #ffffff;
+    }
+  }
+}
