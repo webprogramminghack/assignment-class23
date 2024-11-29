@@ -6,7 +6,7 @@ import IconWarning from '@/assets/svg/icon-warning.svg';
 import { useAppDispatch } from '@/services/redux';
 import React from 'react';
 import { removeToast } from '../services/redux/toast/toast.slice';
-import './Toast.scss';
+import styles from './Toast.module.scss';
 
 interface ToastProps {
   id: string;
@@ -50,13 +50,13 @@ export const Toast: React.FC<ToastProps> = ({
   const getIcon = () => {
     switch (variant) {
       case 'info':
-        return <IconInfo className='toastIcon' />;
+        return <IconInfo className={styles.toastIcon} />;
       case 'success':
-        return <IconSuccess className='toastIcon' />;
+        return <IconSuccess className={styles.toastIcon} />;
       case 'warning':
-        return <IconWarning className='toastIcon' />;
+        return <IconWarning className={styles.toastIcon} />;
       case 'error':
-        return <IconError className='toastIcon' />;
+        return <IconError className={styles.toastIcon} />;
       default: {
         const _exhaustiveCheck: never = variant;
         throw new Error(`Unhandled type: ${_exhaustiveCheck}`);
@@ -65,21 +65,21 @@ export const Toast: React.FC<ToastProps> = ({
   };
 
   return (
-    <div className='toast'>
-      <div className='iconWrapper'>
+    <div className={styles.toast}>
+      <div className={styles.iconWrapper}>
         {getIcon()}
-        <IconCancel className='iconClose' onClick={handleRemoveToast} />
+        <IconCancel className={styles.iconClose} onClick={handleRemoveToast} />
       </div>
-      <div className='toastContent'>
+      <div className={styles.toastContent}>
         <h4>{message}</h4>
         <p>{description}</p>
       </div>
-      <div className='toastFooter'>
-        <a href='#' className='dismissLink' onClick={handleRemoveToast}>
+      <div className={styles.toastFooter}>
+        <a href='#' className={styles.dismissLink} onClick={handleRemoveToast}>
           Dismiss
         </a>
         {isActionActive && (
-          <a href='#' className='toastLink'>
+          <a href='#' className={styles.toastLink}>
             {toastAction}
           </a>
         )}

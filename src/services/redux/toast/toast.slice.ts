@@ -38,22 +38,22 @@ export const toastSlice = createSlice({
         case 'info':
           message = 'Successfully updated profile';
           description =
-            'Info lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
           break;
         case 'success':
           message = 'Successfully updated profile';
           description =
-            'Success lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
           break;
         case 'warning':
           message = 'Just to let you know this might be a problem';
           description =
-            'Warning lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
           break;
         case 'error':
           message = 'There was a problem with that action';
           description =
-            'Error lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
           break;
         default: {
           const _exhaustiveCheck: never = variant;
@@ -75,4 +75,6 @@ export const toastSlice = createSlice({
   },
 });
 
-export const { addToast, removeToast } = toastSlice.actions;
+export const {
+  actions: { addToast, removeToast },
+} = toastSlice;

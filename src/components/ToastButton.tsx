@@ -24,55 +24,29 @@ export const ToastButton: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.buttonWrapper}>
         <p>With Action</p>
-        <button
-          onClick={() => showToast('info', true)}
-          className={styles.button}
-        >
-          Show Info Toast
-        </button>
-        <button
-          onClick={() => showToast('success', true)}
-          className={styles.button}
-        >
+        <button onClick={() => showToast('info', true)}>Show Info Toast</button>
+        <button onClick={() => showToast('success', true)}>
           Show Success Toast
         </button>
-        <button
-          onClick={() => showToast('error', true)}
-          className={styles.button}
-        >
+        <button onClick={() => showToast('error', true)}>
           Show Error Toast
         </button>
-        <button
-          onClick={() => showToast('warning', true)}
-          className={styles.button}
-        >
+        <button onClick={() => showToast('warning', true)}>
           Show Warning Toast
         </button>
       </div>
       <div className={styles.buttonWrapper}>
         <p>Without Action</p>
-        <button
-          onClick={() => showToast('info', false)}
-          className={styles.button}
-        >
+        <button onClick={() => showToast('info', false)}>
           Show Info Toast
         </button>
-        <button
-          onClick={() => showToast('success', false)}
-          className={styles.button}
-        >
+        <button onClick={() => showToast('success', false)}>
           Show Success Toast
         </button>
-        <button
-          onClick={() => showToast('error', false)}
-          className={styles.button}
-        >
+        <button onClick={() => showToast('error', false)}>
           Show Error Toast
         </button>
-        <button
-          onClick={() => showToast('warning', false)}
-          className={styles.button}
-        >
+        <button onClick={() => showToast('warning', false)}>
           Show Warning Toast
         </button>
       </div>
