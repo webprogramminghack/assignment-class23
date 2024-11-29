@@ -30,36 +30,30 @@ export const toastSlice = createSlice({
     ) => {
       const { id, variant, isActionActive } = action.payload;
 
-      // Define message and description based on the type
+      // Define message based on variant
       let message = '';
-      let description = '';
 
       switch (variant) {
         case 'info':
-          message = 'Successfully updated profile';
-          description =
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
+          message = 'Just a quick update for you';
           break;
         case 'success':
           message = 'Successfully updated profile';
-          description =
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
           break;
         case 'warning':
           message = 'Just to let you know this might be a problem';
-          description =
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
           break;
         case 'error':
           message = 'There was a problem with that action';
-          description =
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
           break;
         default: {
           const _exhaustiveCheck: never = variant;
           throw new Error(`Unhandled type: ${_exhaustiveCheck}`);
         }
       }
+
+      const description =
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
 
       state.items.unshift({
         id,
