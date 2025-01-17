@@ -1,0 +1,42 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  margin: 0 rem-calc(16) rem-calc(16) rem-calc(16);
+  // font
+  font-size: rem-calc(14);
+  line-height: rem-calc(20);
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(4);
+
+    .message {
+      font-weight: 600;
+    }
+    .subMessage {
+      font-weight: 400;
+    }
+  }
+  .action {
+    display: flex;
+    position: absolute;
+    gap: rem-calc(12);
+    bottom: 0;
+    font-size: ram-calc(14);
+    line-height: rem-calc(20);
+    font-weight: 600;
+
+    .close {
+      color: #535862;
+      cursor: pointer;
+    }
+
+    .actionMessage {
+      color: #6941C6;
+      cursor: pointer;
+    }
+  }
+}

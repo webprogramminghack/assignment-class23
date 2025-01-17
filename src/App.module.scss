@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  .button {
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    cursor: pointer;
+    &:hover {
+      background-color: #f3eeee;
+    }
+  }
+}
