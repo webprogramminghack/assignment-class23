@@ -1,7 +1,7 @@
+import { addToast } from '@/services/redux/toast';
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 import styles from './ToastButton.module.scss';
-import { addToast } from '@/services/redux/toast';
 
 export const ToastButton: React.FC = () => {
   // const dispatch = useAppDispatch(); perbaiki ini tugasnya bikin use toast
