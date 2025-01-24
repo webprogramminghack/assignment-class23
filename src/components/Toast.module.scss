@@ -1,0 +1,81 @@
+.toast {
+  width: rem_calc(343);
+  padding: rem_calc(16);
+  gap: rem_calc(16);
+  margin-bottom: rem_calc(16);
+  border-radius: rem_calc(12);
+  border: 1px solid #d5d7da;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background-color: #ffffff;
+
+  .iconWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: rem_calc(-7.5);
+
+    .toastIcon {
+      width: rem-calc(35);
+      height: rem-calc(35);
+    }
+
+    .iconClose {
+      width: rem-calc(36);
+      height: rem-calc(36);
+      cursor: pointer;
+    }
+  }
+
+  .toastContent {
+    display: flex;
+    flex-direction: column;
+    gap: rem_calc(4);
+    margin-top: rem_calc(-7.5);
+
+    h4 {
+      font-size: rem-calc(14);
+      font-weight: 600;
+      line-height: rem-calc(20);
+    }
+
+    p {
+      font-size: rem-calc(14);
+      font-weight: 400;
+      line-height: rem-calc(20);
+    }
+  }
+
+  .toastFooter {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: rem_calc(-4);
+    width: 100%;
+
+    .dismissLink {
+      font-size: rem-calc(14);
+      font-weight: 600;
+      line-height: rem-calc(20);
+      color: #666;
+      margin-right: rem-calc(12);
+
+      &:hover {
+        color: #333;
+      }
+    }
+
+    .toastLink {
+      color: #6b46c1; // Purple color for link
+      font-size: rem-calc(14);
+      font-weight: 600;
+      line-height: rem-calc(20);
+      cursor: pointer;
+
+      &:hover {
+        color: #4b3c99;
+      }
+    }
+  }
+}

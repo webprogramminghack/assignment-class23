@@ -1,0 +1,9 @@
+.toastList {
+  position: fixed;
+  top: rem_calc(32);
+  right: rem_calc(32);
+  width: rem_calc(300);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

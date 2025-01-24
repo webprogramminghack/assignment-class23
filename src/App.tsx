@@ -1,9 +1,14 @@
+import { ToastButton } from '@/components/ToastButton';
+import { ToastList } from '@/components/ToastList';
 import React from 'react';
 
 const App: React.FC = () => {
-  // test here
-
-  return <div></div>;
+  return (
+    <div>
+      <ToastButton />
+      <ToastList />
+    </div>
+  );
 };
 
 export default App;
