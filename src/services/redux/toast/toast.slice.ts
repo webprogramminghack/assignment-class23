@@ -1,8 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+export type ToastVariants = 'success' | 'warning' | 'info' | 'danger';
+
 type ToastItems = {
   id: string;
-  variant: 'info' | 'success' | 'error' | 'warning';
+  variant: ToastVariants;
   message: string;
   description: string;
   isActionActive: boolean;
@@ -20,48 +22,8 @@ export const toastSlice = createSlice({
   name: 'toast',
   initialState,
   reducers: {
-    addToast: (
-      state,
-      action: PayloadAction<{
-        id: string;
-        variant: 'info' | 'success' | 'error' | 'warning';
-        isActionActive: boolean;
-      }>
-    ) => {
-      const { id, variant, isActionActive } = action.payload;
-
-      // Define message based on variant
-      let message = '';
-
-      switch (variant) {
-        case 'info':
-          message = 'Just a quick update for you';
-          break;
-        case 'success':
-          message = 'Successfully updated profile';
-          break;
-        case 'warning':
-          message = 'Just to let you know this might be a problem';
-          break;
-        case 'error':
-          message = 'There was a problem with that action';
-          break;
-        default: {
-          const _exhaustiveCheck: never = variant;
-          throw new Error(`Unhandled type: ${_exhaustiveCheck}`);
-        }
-      }
-
-      const description =
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
-
-      state.items.unshift({
-        id,
-        variant,
-        message,
-        description,
-        isActionActive,
-      });
+    addToast: (state, action: PayloadAction<ToastItems>) => {
+      state.items.unshift(action.payload);
     },
     removeToast: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter((toast) => toast.id !== action.payload);

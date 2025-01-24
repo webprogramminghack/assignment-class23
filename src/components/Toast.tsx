@@ -5,12 +5,15 @@ import IconSuccess from '@/assets/svg/icon-success.svg';
 import IconWarning from '@/assets/svg/icon-warning.svg';
 import { useAppDispatch } from '@/services/redux';
 import React from 'react';
-import { removeToast } from '../services/redux/toast/toast.slice';
+import {
+  removeToast,
+  ToastVariants,
+} from '../services/redux/toast/toast.slice';
 import styles from './Toast.module.scss';
 
 interface ToastProps {
   id: string;
-  variant: 'info' | 'success' | 'error' | 'warning';
+  variant: ToastVariants;
   message: string;
   description: string;
   isActionActive: boolean;
@@ -37,7 +40,7 @@ export const Toast: React.FC<ToastProps> = ({
         toastAction = 'View Changes';
         break;
       case 'warning':
-      case 'error':
+      case 'danger':
         toastAction = 'Learn More';
         break;
       default: {
@@ -55,7 +58,7 @@ export const Toast: React.FC<ToastProps> = ({
         return <IconSuccess className={styles.toastIcon} />;
       case 'warning':
         return <IconWarning className={styles.toastIcon} />;
-      case 'error':
+      case 'danger':
         return <IconError className={styles.toastIcon} />;
       default: {
         const _exhaustiveCheck: never = variant;
