@@ -6,8 +6,8 @@ export type ToastItem = {
   id: string;
   variant: ToastVariant;
   message: string;
-  description: string;
-  isAction: boolean;
+  subMessage: string;
+  isActionActive: boolean;
 }
 
 type ToastState = {
