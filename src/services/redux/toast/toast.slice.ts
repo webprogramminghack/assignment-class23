@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export type ToastVariant = 'success' | 'error' | 'warning' | 'info';
+export type ToastVariant = 'success' | 'warning' | 'error' | 'info';
 
 export type ToastItem = {
   id: string;

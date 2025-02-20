@@ -1,14 +1,29 @@
 import React from 'react';
 import style from './Button.module.scss';
+import { ToastVariant } from '@/services/redux/toast';
+// import { selectToastItems } from '@/services/redux/toast';
+// import { useAppSelector } from '@/services/redux';
+import { v4 as uuid } from 'uuid';
+import { useToast } from '@/hooks/useToast';
 
 type ButtonProps = {
-  type: 'success' | 'warning' | 'error' | 'gray';
+  type: ToastVariant;
   children: React.ReactNode;
 }
 
 export const Button: React.FC<ButtonProps> = ({ type, children }) => {
+  // const toastState = useAppSelector(selectToastItems);
+  const { addToast } = useToast();
+  
   const handleClick = () => {
     alert(`Show Toast ${type}`);
+    addToast({
+      id: uuid(),
+      variant: type,
+      message: 'message',
+      subMessage: 'subMessage',
+      isActionActive: false,
+    });
   }
 
   return (

@@ -9,7 +9,7 @@ const App: React.FC = () => {
     <Button type='success'>Show Toast Success</Button>
     <Button type='warning'>Show Toast Warning</Button>
     <Button type='error'>Show Toast Error</Button>
-    <Button type='gray'>Show Toast Gray</Button>
+    <Button type='info'>Show Toast Info</Button>
   </div>;
 };
 
