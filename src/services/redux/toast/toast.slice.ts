@@ -1,11 +1,13 @@
+// redux/toast/toast.slice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type ToastItem = {
   id: string;
-  type: 'info' | 'success' | 'error' | 'warning';
+  variants: 'info' | 'success' | 'danger' | 'warning';
   message: string;
-  description: string;
+  subMessage: string;
   isActionActive: boolean;
+  onActionMessage?: string;
 };
 
 type ToastState = {
@@ -24,46 +26,14 @@ export const toastSlice = createSlice({
       state,
       action: PayloadAction<{
         id: string;
-        type: 'info' | 'success' | 'error' | 'warning';
+        variants: 'info' | 'success' | 'danger' | 'warning';
+        message: string;
+        subMessage: string;
         isActionActive: boolean;
+        onActionMessage?: string;
       }>
     ) => {
-      const { id, type, isActionActive } = action.payload;
-
-      // Define message and description based on the type
-      let message = '';
-      let description = '';
-
-      switch (type) {
-        case 'info':
-          message = 'Successfully updated profile';
-          description =
-            'Info lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
-          break;
-        case 'success':
-          message = 'Successfully updated profile';
-          description =
-            'Success lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
-          break;
-        case 'warning':
-          message = 'Just to let you know this might be a problem';
-          description =
-            'Warning lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
-          break;
-        case 'error':
-          message = 'There was a problem with that action';
-          description =
-            'Error lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum dolor.';
-          break;
-      }
-
-      state.items.unshift({
-        id,
-        type,
-        message,
-        description,
-        isActionActive,
-      });
+      state.items.unshift(action.payload);
     },
     removeToast: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter((toast) => toast.id !== action.payload);

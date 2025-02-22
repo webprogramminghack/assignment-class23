@@ -1,3 +1,4 @@
+// Toast.tsx
 import React from 'react';
 import { useAppDispatch } from '@/services/redux';
 import { removeToast } from '../services/redux/toast/toast.slice';
@@ -10,18 +11,20 @@ import './Toast.scss';
 
 interface ToastProps {
   id: string;
-  type: 'info' | 'success' | 'error' | 'warning';
+  variants: 'info' | 'success' | 'danger' | 'warning';
   message: string;
-  description: string;
+  subMessage: string;
   isActionActive: boolean;
+  onActionMessage?: string;
 }
 
 const Toast: React.FC<ToastProps> = ({
   id,
-  type,
+  variants,
   message,
-  description,
+  subMessage,
   isActionActive,
+  onActionMessage,
 }) => {
   const dispatch = useAppDispatch();
 
@@ -29,36 +32,15 @@ const Toast: React.FC<ToastProps> = ({
     dispatch(removeToast(id));
   };
 
-  let linkCaption = '';
-  if (isActionActive) {
-    switch (type) {
-      case 'info':
-        linkCaption = 'View Changes';
-        break;
-      case 'success':
-        linkCaption = 'View Changes';
-        break;
-      case 'warning':
-        linkCaption = 'Learn More';
-        break;
-      case 'error':
-        linkCaption = 'Learn More';
-        break;
-      default:
-        linkCaption = 'Unknown Action';
-        break;
-    }
-  }
-
   const renderIcon = () => {
-    switch (type) {
+    switch (variants) {
       case 'info':
         return <IconInfo className='toastIcon' />;
       case 'success':
         return <IconSuccess className='toastIcon' />;
       case 'warning':
         return <IconWarning className='toastIcon' />;
-      case 'error':
+      case 'danger':
         return <IconError className='toastIcon' />;
       default:
         return null;
@@ -73,18 +55,15 @@ const Toast: React.FC<ToastProps> = ({
       </div>
       <div className='toastContent'>
         <h4>{message}</h4>
-        <p>{description}</p>
+        <p>{subMessage}</p>
       </div>
-      {/* <button onClick={handleDismiss} className='toast-dismiss'>
-        &times;
-      </button> */}
       <div className='toastFooter'>
         <a href='#' className='dismissLink' onClick={handleDismiss}>
           Dismiss
         </a>
-        {isActionActive && (
+        {isActionActive && onActionMessage && (
           <a href='#' className='toastLink'>
-            {linkCaption}
+            {onActionMessage}
           </a>
         )}
       </div>
