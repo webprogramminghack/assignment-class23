@@ -8,14 +8,43 @@ import { Button } from '@/components/Button';
 const App: React.FC = () => {
   // test here
   const toastState = useAppSelector(selectToastItems);
+  const subMessage = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquid pariatur, ipsum dolor.';
 
   return (
     <>
       <div className={style.buttonContainer}>
-        <Button type='success'>Show Toast Success</Button>
-        <Button type='warning'>Show Toast Warning</Button>
-        <Button type='error'>Show Toast Error</Button>
-        <Button type='info'>Show Toast Info</Button>
+        <Button
+          type='success'
+          message='Successfully updated profile'
+          subMessage={subMessage}
+          isActionActive={true}
+        >
+          Show Toast Success with Action
+        </Button>
+        <Button
+          type='warning'
+          message='Just to let you know this might be a problem'
+          subMessage={subMessage}
+          isActionActive={false}
+        >
+          Show Toast Warning
+        </Button>
+        <Button
+          type='error'
+          message='There was a problem with that action'
+          subMessage={subMessage}
+          isActionActive={true}
+        >
+          Show Toast Error with Action
+        </Button>
+        <Button
+          type='info'
+          message='Just a quick update for you'
+          subMessage={subMessage}
+          isActionActive={false}
+        >
+          Show Toast Info
+        </Button>
       </div>
       <div className={style.toastContainer}>
         {

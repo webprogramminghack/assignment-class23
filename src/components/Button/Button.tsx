@@ -6,21 +6,30 @@ import { useToast } from '@/hooks/useToast';
 
 type ButtonProps = {
   type: ToastVariant;
+  message: string;
+  subMessage: string;
+  isActionActive: boolean;
   children: React.ReactNode;
 }
 
-export const Button: React.FC<ButtonProps> = ({ type, children }) => {
+export const Button: React.FC<ButtonProps> = ({
+  type,
+  message,
+  subMessage,
+  isActionActive,
+  children
+}) => {
   const { addToast } = useToast();
+  const payload = {
+    id: uuid(),
+    variant: type,
+    message,
+    subMessage,
+    isActionActive,
+  }
   
   const handleClick = () => {
-    alert(`Show Toast ${type}`);
-    addToast({
-      id: uuid(),
-      variant: type,
-      message: 'message',
-      subMessage: 'subMessage',
-      isActionActive: false,
-    });
+    addToast(payload);
   }
 
   return (
